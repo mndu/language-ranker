@@ -15,7 +15,6 @@
       <p class="institutions"><sup>1</sup> New Jersey Institute of Technology, <sup>2</sup> University of Georgia, <sup>3</sup> University of Minnesota at Twin Cities,<br class="wide-only"> <sup>4</sup> Wake Forest University, <sup>5</sup> Cisco Research</p>
       <p class="author-note">* Work done during a remote internship at New Jersey Institute of Technology.</p>
       <p class="links"><a href="https://arxiv.org/pdf/2404.11553">[Paper]</a>&nbsp; <a href="https://github.com/lizh9885/Language-Ranker/">[Code]</a>&nbsp; <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35038">[AAAI]</a></p>
-      <figure class="teaser"><img src="assets/language-results.png" width="1430" height="820" alt="Cosine similarity between English and ten other languages across model layers for Llama 2, Gemma, Mistral, and Qwen 7B. High-resource languages generally rank above low-resource languages."><figcaption>Figure 1. Similarity to English across languages and model layers. Figure from the paper.</figcaption></figure>
     </section>
 
     <section class="sheet" aria-labelledby="overview-title">
@@ -30,9 +29,12 @@
     <section class="sheet" aria-labelledby="results-title">
       <h2 id="results-title">Results</h2>
       <div class="body-copy">
-        <p>Figure 1 shows a consistent separation between the selected high- and low-resource languages across four 7B models. Relative language rankings also show positive correspondence across models, as illustrated by the pairwise rank-correlation matrix below.</p>
-        <figure class="result-figure"><img src="assets/rank-correlation.png" width="600" height="480" loading="lazy" alt="Pairwise language-rank correlation across Llama 2, Gemma, Mistral, and Qwen. Off-diagonal correlations range from 0.32 to 0.41."><figcaption>Figure 2. Rank correlation between language lists produced by four models.</figcaption></figure>
+        <p>Figure 1 shows the similarity to English across model layers for Llama 2, Gemma, Mistral, and Qwen 7B. In these selected languages, the high-resource group generally scores above the low-resource group. The pattern appears across all four models, although individual languages and layers differ.</p>
+        <figure class="result-figure"><img src="assets/language-results.png" width="1430" height="820" loading="lazy" alt="Cosine similarity between English and ten other languages across model layers for Llama 2, Gemma, Mistral, and Qwen 7B. High-resource languages generally rank above low-resource languages."><figcaption>Figure 1. Similarity to English across languages and model layers. Figure from the paper.</figcaption></figure>
         <p>For Llama 2, the selected examples in Table 1 illustrate the relationship with pre-training data: German and French have similarity scores of 0.723 and 0.737, respectively, while Kannada and Urdu score 0.236 and 0.275. The paper reports their corresponding language shares as 0.17%, 0.16%, and at most 0.01% for Kannada and Urdu.</p>
+        <h3>Why Language Ranker Is Meaningful</h3>
+        <p>Figure 4 provides a view of the representation spaces behind these scores. In Gemma 7B, the four high-resource languages in the top row occupy broader regions of the projected space, while the four low-resource languages in the bottom row are concentrated in much narrower regions. This difference supports the paper’s interpretation that representation geometry reflects differences in language coverage. The projection offers qualitative evidence alongside the similarity scores and downstream evaluations.</p>
+        <figure class="result-figure"><img src="assets/gemma-embedding-space.png" width="2379" height="1180" loading="lazy" alt="Gemma 7B embedding-space projections for German, Spanish, French, and Chinese in the top row and Yiddish, Oriya, Kinyarwanda, and Kazakh in the bottom row. The bottom-row representations appear more narrowly concentrated."><figcaption>Figure 4. Gemma 7B embedding-space visualization: four high-resource languages (top) and four low-resource languages (bottom). Figure from the paper.</figcaption></figure>
       </div>
     </section>
 
