@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Language Ranker: A Metric for Quantifying LLM Performance Across High and Low-Resource Languages. AAAI 2025 project page.">
+  <title>Language Ranker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="sheet home">
+      <h1>Language Ranker: A Metric for Quantifying LLM Performance<br class="wide-only"> Across High and Low-Resource Languages</h1>
+      <p class="authors">Zihao Li<sup>1,*</sup>, Yucheng Shi<sup>2</sup>, Zirui Liu<sup>3</sup>, Fan Yang<sup>4</sup>, Ali Payani<sup>5</sup>, Ninghao Liu<sup>2</sup>, Mengnan Du<sup>1</sup></p>
+      <p class="institutions"><sup>1</sup> New Jersey Institute of Technology, <sup>2</sup> University of Georgia, <sup>3</sup> University of Minnesota at Twin Cities,<br class="wide-only"> <sup>4</sup> Wake Forest University, <sup>5</sup> Cisco Research</p>
+      <p class="author-note">* Work done during a remote internship at New Jersey Institute of Technology.</p>
+      <p class="links"><a href="https://arxiv.org/pdf/2404.11553">[Paper]</a>&nbsp; <a href="https://github.com/lizh9885/Language-Ranker/">[Code]</a>&nbsp; <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35038">[AAAI]</a></p>
+      <figure class="teaser"><img src="assets/language-results.png" width="1430" height="820" alt="Cosine similarity between English and ten other languages across model layers for Llama 2, Gemma, Mistral, and Qwen 7B. High-resource languages generally rank above low-resource languages."><figcaption>Figure 1. Similarity to English across languages and model layers. Figure from the paper.</figcaption></figure>
+    </section>
+
+    <section class="sheet" aria-labelledby="overview-title">
+      <h2 id="overview-title">Overview</h2>
+      <div class="body-copy">
+        <p>Large language models are trained on corpora that differ greatly in coverage across languages. This paper introduces <strong>Language Ranker</strong>, an intrinsic metric for comparing a model’s representations of a language with those of corresponding English text. The resulting scores provide a way to examine relative multilingual capability, including for languages with limited evaluation resources.</p>
+        <p>The method uses parallel sentences from OPUS-100. For each pair, it takes the last-token representations at selected transformer layers, computes cosine similarity between the target language and its English translation, and averages the similarities across layers. Languages are then ranked by this score.</p>
+        <p>Experiments with Llama 2, Llama 3, Qwen, Mistral, and Gemma show higher scores for many high-resource languages and lower scores for low-resource languages. The analysis also compares the scores with language shares in pre-training corpora and with downstream multilingual reasoning tasks. The similarity score is an indirect measure of capability; the paper reports these comparisons to support its interpretation.</p>
+      </div>
+    </section>
+
+    <section class="sheet" aria-labelledby="results-title">
+      <h2 id="results-title">Results</h2>
+      <div class="body-copy">
+        <p>Figure 1 shows a consistent separation between the selected high- and low-resource languages across four 7B models. Relative language rankings also show positive correspondence across models, as illustrated by the pairwise rank-correlation matrix below.</p>
+        <figure class="result-figure"><img src="assets/rank-correlation.png" width="600" height="480" loading="lazy" alt="Pairwise language-rank correlation across Llama 2, Gemma, Mistral, and Qwen. Off-diagonal correlations range from 0.32 to 0.41."><figcaption>Figure 2. Rank correlation between language lists produced by four models.</figcaption></figure>
+        <p>For Llama 2, the selected examples in Table 1 illustrate the relationship with pre-training data: German and French have similarity scores of 0.723 and 0.737, respectively, while Kannada and Urdu score 0.236 and 0.275. The paper reports their corresponding language shares as 0.17%, 0.16%, and at most 0.01% for Kannada and Urdu.</p>
+      </div>
+    </section>
+
+    <section class="sheet bib-sheet" aria-labelledby="bibtex-title">
+      <h2 id="bibtex-title">BibTeX</h2>
+      <pre><code>@inproceedings{li2025language,
+  title     = {Language Ranker: A Metric for Quantifying LLM Performance Across High and Low-Resource Languages},
+  author    = {Li, Zihao and Shi, Yucheng and Liu, Zirui and Yang, Fan and Payani, Ali and Liu, Ninghao and Du, Mengnan},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {39},
+  number    = {27},
+  pages     = {28186--28194},
+  year      = {2025},
+  doi       = {10.1609/aaai.v39i27.35038}
+}</code></pre>
+    </section>
+  </main>
+</body>
+</html>
