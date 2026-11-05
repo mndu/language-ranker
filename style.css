@@ -17,6 +17,9 @@ h1 { max-width: 940px; margin: 0 auto 18px; font-size: 22pt; font-weight: 400; l
 sup { font-size: .65em; vertical-align: super; }
 .teaser { margin: 26px auto 0; }
 .teaser img { display: block; width: 95%; height: auto; margin: auto; }
+.framework { margin: 26px auto 0; }
+.framework a { display: block; }
+.framework img { display: block; width: 95%; height: auto; margin: auto; }
 figcaption { margin: 9px auto 0; color: #555; font-size: 11pt; line-height: 1.4; text-align: center; }
 h2 { margin: 5px 0 20px; font-size: 22pt; font-weight: 400; line-height: 1.2; text-align: center; }
 .body-copy { font-size: 14pt; line-height: 1.62; text-align: justify; }
@@ -44,4 +47,5 @@ pre { margin: 5px 0; padding: 12px 15px; overflow-x: auto; background: #fcfcfc; 
   h1 { font-size: 18pt; }
   .authors, .institutions, .links { font-size: 12pt; }
   .teaser img, .result-figure img { width: 100%; }
+  .framework img { width: 100%; }
 }
